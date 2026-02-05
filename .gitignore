@@ -1,0 +1,8 @@
+build/
+**/build/
+.west/
+.cache/
+*.pyc
+*.o
+*.bin
+*.elf

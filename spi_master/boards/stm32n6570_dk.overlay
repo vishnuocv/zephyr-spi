@@ -1,0 +1,14 @@
+&spi5 {
+	status = "okay";
+
+	pinctrl-0 = <
+		&spi5_nss_pa3
+		&spi5_sck_pe15
+		&spi5_miso_ph8
+		&spi5_mosi_pg2
+	>;
+	pinctrl-names = "default";
+
+	cs-gpios = <&gpioa 3 GPIO_ACTIVE_LOW>;
+};
+
