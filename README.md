@@ -6,12 +6,12 @@ This repository contains two Zephyr applications for SPI testing between an STM3
 
 ### Build Master (DK Board)
 \`\`\`bash
-west build -b stm32n6570_dk -d spi_master/build spi_master --sysbuild
+west build -b stm32n6570_dk -d spi_master/build spi_master --sysbuild -p always
 \`\`\`
 
 ### Build Slave (Nucleo Board)
 \`\`\`bash
-west build -b nucleo_n657x0_q -d spi_slave/build spi_slave --sysbuild
+west build -b nucleo_n657x0_q -d spi_slave/build spi_slave --sysbuild -p always
 \`\`\`
 
 ## Connections
