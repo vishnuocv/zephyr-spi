@@ -1,12 +1,13 @@
-&spi1 {
-    status = "okay";
+&spi5 {
+        status = "okay";
 
-    pinctrl-0 = <
-        &spi1_sck_pa5
-        &spi1_miso_pa6
-        &spi1_mosi_pa7
-    >;
+        pinctrl-0 = <
+                &spi5_nss_pa3
+                &spi5_sck_pe15
+                &spi5_miso_ph8
+                &spi5_mosi_pg2
+        >;
+        pinctrl-names = "default";
 
-    pinctrl-names = "default";
 };
 

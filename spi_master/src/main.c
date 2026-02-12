@@ -4,6 +4,7 @@
 #include <zephyr/logging/log.h>
 
 LOG_MODULE_REGISTER(spi_test, LOG_LEVEL_DBG);
+#define SPI_NODE DT_NODELABEL(spi5)
 
 int main(void)
 {
@@ -43,9 +44,21 @@ int main(void)
 		return 0;
 	}
 
+
+#if 0
+        spi = DEVICE_DT_GET(SPI_NODE);
+
+        printk("SPI Master Device check\n");
+
+        if (!device_is_ready(spi)) {
+                printk("SPI device not ready\n");
+                return;
+        }
+#endif
+
 	LOG_INF("Using SPI device: %s", spi->name);
 
-	cfg.frequency = 500000;
+	cfg.frequency = 1000000;
 	cfg.operation =
 		SPI_WORD_SET(8) |
 		SPI_TRANSFER_MSB |
