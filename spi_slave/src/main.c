@@ -42,22 +42,13 @@ int main(void)
 		.count = 1,
 	};
 
-	/* 
-	 * SPI configuration for SLAVE mode
-	 * IMPORTANT: No .frequency field for slave!
-	 * Operation mode must match the master:
-	 * - Mode 0: No CPOL, No CPHA
-	 * - Mode 3: CPOL | CPHA (as shown below)
-	 */
-	
 	struct spi_config cfg = {
-//	        .frequency = 250000,        /* MUST set a valid frequency for STM32 driver */
+		.frequency = 250000,        /* MUST set a valid frequency for STM32 driver */
 		.operation = SPI_OP_MODE_SLAVE |      /* Slave mode */
 			SPI_WORD_SET(8) |         /* 8-bit data */
-			SPI_TRANSFER_MSB |        /* MSB first */
-			SPI_MODE_CPOL |           /* Clock polarity (1 for Mode 3) */
-			SPI_MODE_CPHA,            /* Clock phase (1 for Mode 3) */
+			SPI_TRANSFER_MSB,         /* MSB first */
 			.slave = 0,                           /* Slave index 0 */
+			.cs = NULL,
 		/* No .frequency field - not used in slave mode */
 	};
 
@@ -75,6 +66,7 @@ int main(void)
 		tx_buf[0], tx_buf[1], tx_buf[2], tx_buf[3],
 		tx_buf[4], tx_buf[5], tx_buf[6], tx_buf[7]);
 
+	k_sleep(K_SECONDS(2));
 	while (1) {
 		/* Clear receive buffer */
 		memset(rx_buf, 0, sizeof(rx_buf));
@@ -104,7 +96,7 @@ int main(void)
 		}
 
 		/* Small delay to prevent tight loop */
-		k_sleep(K_MSEC(10));
+		k_sleep(K_MSEC(200));
 	}
 
 	return 0;

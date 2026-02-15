@@ -9,6 +9,6 @@
 	>;
 	pinctrl-names = "default";
 
-	cs-gpios = <&gpioa 3 GPIO_ACTIVE_LOW>;
+//	cs-gpios = <&gpioa 3 GPIO_ACTIVE_LOW>;
 };
 

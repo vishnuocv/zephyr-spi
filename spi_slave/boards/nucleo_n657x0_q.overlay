@@ -4,7 +4,7 @@
         pinctrl-0 = <
                 &spi5_nss_pa3
                 &spi5_sck_pe15
-                &spi5_miso_ph8
+                &spi5_miso_pg1
                 &spi5_mosi_pg2
         >;
         pinctrl-names = "default";
