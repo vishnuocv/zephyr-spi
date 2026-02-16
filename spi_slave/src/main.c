@@ -77,7 +77,7 @@ int main(void)
 		 */
 		ret = spi_transceive(spi_dev, &cfg, &tx_set, &rx_set);
 
-		if (ret == 0) {
+		if (ret == 0 || ret == sizeof(tx_buf)) {
 			/* Successful transaction */
 			LOG_INF("SPI transaction complete");
 			LOG_INF("RX data: %02X %02X %02X %02X %02X %02X %02X %02X", 
